@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import httpResponse
+from django.http import HttpResponse
 
 def index(request):
-    return httpResponse("hi there. you are in polls index.")
+    return HttpResponse("hi there. you are in polls index.")
