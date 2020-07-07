@@ -1,3 +1,17 @@
+import datetime
+
 from django.test import TestCase
+from django.utils import timezone
+
+from .models import Question
+
+
+class QuestionModelsTest(TestCase):
+    
+    def test_was_pub_recently_with_future_question(self):
+
+        time = timezone.now() + datetime.timedelta(days=30)
+        future_question = Question(pub_date = time)
+        self.assertIs(future_question.was_pub_recently(), False)
 
 # Create your tests here.
